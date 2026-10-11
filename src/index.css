@@ -1,0 +1,103 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --card: 217 33% 17%;
+    --card-foreground: 210 40% 98%;
+    --popover: 217 33% 17%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 160 84% 39%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 217 33% 22%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 22%;
+    --muted-foreground: 215 20% 55%;
+    --accent: 160 84% 39%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 33% 25%;
+    --input: 217 33% 25%;
+    --ring: 160 84% 39%;
+    --radius: 0.75rem;
+
+    --safe: 160 84% 39%;
+    --safe-foreground: 210 40% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 10%;
+    --danger: 347 77% 50%;
+    --danger-foreground: 210 40% 98%;
+    --info: 217 91% 60%;
+    --info-foreground: 210 40% 98%;
+
+    --glass-bg: 217 33% 17% / 0.6;
+    --glass-border: 217 33% 30% / 0.5;
+    --glow-primary: 160 84% 39% / 0.15;
+    --glow-warning: 38 92% 50% / 0.15;
+    --glow-danger: 347 77% 50% / 0.15;
+
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 160 84% 39%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 217 33% 22%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217 33% 25%;
+    --sidebar-ring: 160 84% 39%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Rajdhani', sans-serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card/60 backdrop-blur-xl border border-border/50 rounded-xl shadow-lg;
+  }
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300 hover:border-primary/30 hover:shadow-primary/5 hover:shadow-xl;
+  }
+  .glow-safe {
+    box-shadow: 0 0 20px hsl(var(--safe) / 0.2), 0 0 40px hsl(var(--safe) / 0.1);
+  }
+  .glow-warning {
+    box-shadow: 0 0 20px hsl(var(--warning) / 0.2), 0 0 40px hsl(var(--warning) / 0.1);
+  }
+  .glow-danger {
+    box-shadow: 0 0 20px hsl(var(--danger) / 0.2), 0 0 40px hsl(var(--danger) / 0.1);
+  }
+  .status-dot {
+    @apply w-2 h-2 rounded-full animate-pulse;
+  }
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-emerald-400 to-teal-300;
+  }
+  .section-title {
+    @apply text-2xl font-bold tracking-tight;
+    font-family: 'Rajdhani', sans-serif;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
